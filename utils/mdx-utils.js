@@ -25,7 +25,12 @@ export const sortPostsByDate = (posts) => {
 export const getPosts = () => {
   let posts = postFilePaths.map((filePath) => {
     const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
+    const { birthtime } = fs.statSync(path.join(POSTS_PATH, filePath));
+    const options = { day: 'numeric', month: 'long', year: 'numeric'};
+    let newDate = birthtime.toLocaleDateString('uk', options);
+    newDate = newDate.slice(0, -3);
     const { content, data } = matter(source);
+    data.date = newDate;
 
     return {
       content,
