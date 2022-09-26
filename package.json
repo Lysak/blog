@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "next",
-    "dev:watch": "next-remote-watch ./posts",
+    "dev:watch": "next-remote-watch ./",
     "build": "next build",
     "start": "next start",
     "export": "next build && next export",
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.8.0",
-    "@netlify/plugin-nextjs": "4.15",
+    "@netlify/plugin-nextjs": "4.23",
     "@tailwindcss/typography": "^0.5.0",
     "classnames": "^2.3.1",
     "cypress": "^10.1.0",
@@ -38,7 +38,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.0",
     "eslint": "<9.0.0",
-    "eslint-config-next": "12.2.4",
+    "eslint-config-next": "12.3.0",
     "eslint-config-prettier": "^8.3.0",
     "netlify-plugin-cypress": "~2.2.0",
     "postcss": "^8.4.4",

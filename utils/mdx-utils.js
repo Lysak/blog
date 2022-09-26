@@ -22,15 +22,22 @@ export const sortPostsByDate = (posts) => {
   });
 };
 
+export const changePostsDateFormat = (posts) => {
+  posts.forEach((post) => {
+    const date = new Date(Date.parse(post.data.date));
+    const options = {day: 'numeric', month: 'long', year: 'numeric'};
+    post.data.date = date.toLocaleDateString('uk', options).slice(0, -3);
+    
+    console.log(post.data.date, 'post.data.date');
+  });
+
+  return posts;
+};
+
 export const getPosts = () => {
   let posts = postFilePaths.map((filePath) => {
     const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
-    const { birthtime } = fs.statSync(path.join(POSTS_PATH, filePath));
-    const options = { day: 'numeric', month: 'long', year: 'numeric'};
-    let newDate = birthtime.toLocaleDateString('uk', options);
-    newDate = newDate.slice(0, -3);
     const { content, data } = matter(source);
-    data.date = newDate;
 
     return {
       content,
@@ -40,6 +47,7 @@ export const getPosts = () => {
   });
 
   posts = sortPostsByDate(posts);
+  posts = changePostsDateFormat(posts);
 
   return posts;
 };
