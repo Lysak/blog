@@ -28,7 +28,7 @@ export const changePostsDateFormat = (posts) => {
     const options = {day: 'numeric', month: 'long', year: 'numeric'};
     post.data.date = date.toLocaleDateString('uk', options).slice(0, -3);
     
-    console.log(post.data.date, 'post.data.date');
+    // console.log(post.data.date, 'post.data.date');
   });
 
   return posts;
