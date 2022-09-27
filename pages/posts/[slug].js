@@ -51,7 +51,7 @@ export default function PostPage({
             <p className="text-xl mb-4">{frontMatter.description}</p>
           )}
         </header>
-        <main>
+        <main className="text-wrap">
           <article className="prose dark:prose-dark">
             <MDXRemote {...source} components={components} />
           </article>
