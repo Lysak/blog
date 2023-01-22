@@ -137,3 +137,9 @@ And lastly if you’d like to remove Cypress entirely, delete the entire `cypres
 ```bash
 npm uninstall cypress
 ```
+
+```bash
+Improvements
+* need to fix 500 error- https://blog.lysak.ml/posts/sss
+* update fork
+```
